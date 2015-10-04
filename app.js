@@ -23,5 +23,5 @@ server.on('upgrade', function (req, socket, head) {
   });
 });
 
-console.log("listening on port 8080");
-server.listen(8080);
+console.log("listening on port " + config.port);
+server.listen(config.port);

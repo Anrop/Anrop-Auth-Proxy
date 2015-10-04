@@ -1,4 +1,5 @@
 module.exports = {
   group: '5',
+  port: 8080,
   target: 'http://arma3.anrop.se:3000',
 };
