@@ -1,0 +1,4 @@
+module.exports = {
+  group: '5',
+  target: 'http://arma3.anrop.se:3000',
+};
