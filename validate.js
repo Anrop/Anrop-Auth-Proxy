@@ -23,7 +23,7 @@ function validateUser(userId, cb) {
     } else {
       console.log(user);
 
-      if (user.groups.indexOf(config.group) > -1) {
+      if (user.groups && user.groups.indexOf(config.group) > -1) {
         validUsers[userId] = user;
         console.log('User is allowed access');
         cb(null);
