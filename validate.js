@@ -5,8 +5,13 @@ var config = require('./config');
 
 var validUsers = {};
 
-function fetchUser(id, cb) {
-  request('http://www.anrop.se/api/users/' + id, {json: true}, function (err, resp, body) {
+function fetchUser(token, cb) {
+  var cookie = request.cookie(config.cookie + '=' + token);
+  var url = 'https://www.anrop.se';
+  var jar = request.jar();
+  jar.setCookie(cookie, url);
+
+  request('https://www.anrop.se/api/users/current', {jar: jar, json: true}, function (err, resp, body) {
     if (err) {
       cb(err);
     } else {
@@ -37,19 +42,14 @@ function validateUser(userId, cb) {
 
 module.exports = function (req, cb) {
   cookies = new Cookies(req);
-  var userCookie = cookies.get('fusionGppEM_user');
+  var token = cookies.get('fusionGppEM_user');
 
-  if (userCookie) {
-    var userCookieData = userCookie.split('.');
-    var userId = userCookieData[0];
-    var expiration = userCookieData[1];
-    var hash = userCookieData[2];
-
-    if (validUsers[userId]) {
+  if (token) {
+    if (validUsers[token]) {
       console.log('User is already allowed access');
       cb(null);
     } else {
-      validateUser(userId, cb);
+      validateUser(token, cb);
     }
   } else {
     console.log('No cookie found in request');
