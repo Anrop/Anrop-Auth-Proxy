@@ -15,6 +15,12 @@ Copy `config.js.example` to `config.js` and set desired parameters
 Start the API with `npm start`.
 Server will be available at port chosen in config file.
 
+## Windows Service
+
+Install as a Windows Service with `npm run install-windows-service`.
+
+Remove previously installed Windows Service with `npm run uninstall-windows-service`.
+
 ## Config Values
 
 The following values should be specified in the `config.js`.
