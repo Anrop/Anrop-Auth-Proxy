@@ -1,9 +1,11 @@
 {
-  "name": "anrop-proxy",
+  "name": "anrop-auth-proxy",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
+    "install-windows-service": "winser -i -c",
+    "uninstall-windows-service": "winser -r -x -c",
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +14,7 @@
   "dependencies": {
     "cookies": "^0.5.1",
     "http-proxy": "^1.11.2",
-    "request": "^2.64.0"
+    "request": "^2.64.0",
+    "winser": "^1.0.2"
   }
 }
