@@ -37,7 +37,7 @@ The following values should be specified in the `config.js`.
 Some groups which could be relevant
 
 | Group Id | Description |
-| --- | -------- | ----------- |
+| --- | -------- |
 | 4 | SFP Developers |
 | 5 | SFP Testers |
 | 7 | Operations Makers |
