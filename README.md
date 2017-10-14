@@ -31,6 +31,7 @@ The following values should be specified in the `config.js`.
 | group | Yes | Required User Group at Anrop to allow access |
 | port | Yes | Port that should be used by Auth Proxy HTTP Server |
 | target | Yes | HTTP url to forward requests to |
+| whitelist | no | Array of whitelisted endpoints. Each item MUST have a `path` and an optional `method` property |
 
 ## Groups
 

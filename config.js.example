@@ -3,4 +3,10 @@ module.exports = {
   group: '7',
   port: 3000,
   target: 'http://arma3.anrop.se:3000',
-};
+  whitelist: [
+    {
+      method: 'GET',
+      path: '/path'
+    }
+  ]
+}
