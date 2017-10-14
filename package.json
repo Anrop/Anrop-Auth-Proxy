@@ -6,8 +6,7 @@
   "scripts": {
     "install-windows-service": "winser -i -c",
     "uninstall-windows-service": "winser -r -x -c",
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "Björn Dahlgren",
   "license": "MIT",
