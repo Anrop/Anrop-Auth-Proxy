@@ -42,7 +42,7 @@ function validateUser (userId, cb) {
 
 module.exports = function (req, cb) {
   var cookies = new Cookies(req)
-  var token = cookies.get('fusionGppEM_user')
+  var token = cookies.get(config.cookie)
 
   if (token) {
     if (validUsers[token]) {
