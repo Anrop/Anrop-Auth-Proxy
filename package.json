@@ -6,6 +6,7 @@
   "scripts": {
     "install-windows-service": "winser -i -c",
     "uninstall-windows-service": "winser -r -x -c",
+    "lint": "standard --verbose",
     "start": "node app.js"
   },
   "author": "Björn Dahlgren",
@@ -15,5 +16,8 @@
     "http-proxy": "^1.11.2",
     "request": "^2.64.0",
     "winser": "^1.0.2"
+  },
+  "devDependencies": {
+    "standard": "^10.0.3"
   }
 }
