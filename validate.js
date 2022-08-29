@@ -1,17 +1,17 @@
-var Cookies = require('cookies')
-var request = require('request')
+const Cookies = require('cookies')
+const request = require('request')
 
-var config = require('./config')
+const config = require('./config')
 
-var validUsers = {}
+const validUsers = {}
 
 function fetchUser (token, cb) {
-  var cookie = request.cookie(config.cookie + '=' + token)
-  var url = 'https://www.anrop.se'
-  var jar = request.jar()
+  const cookie = request.cookie(config.cookie + '=' + token)
+  const url = 'https://www.anrop.se'
+  const jar = request.jar()
   jar.setCookie(cookie, url)
 
-  request('https://www.anrop.se/api/users/current', {jar: jar, json: true}, function (err, resp, body) {
+  request('https://www.anrop.se/api/users/current', { jar, json: true }, function (err, resp, body) {
     if (err) {
       cb(err)
     } else {
@@ -41,8 +41,8 @@ function validateUser (userId, cb) {
 }
 
 module.exports = function (req, cb) {
-  var cookies = new Cookies(req)
-  var token = cookies.get(config.cookie)
+  const cookies = new Cookies(req)
+  const token = cookies.get(config.cookie)
 
   if (token) {
     if (validUsers[token]) {
