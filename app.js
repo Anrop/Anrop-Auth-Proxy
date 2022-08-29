@@ -1,21 +1,21 @@
-var http = require('http')
-var httpProxy = require('http-proxy')
-var validateUser = require('./validate')
+const http = require('http')
+const httpProxy = require('http-proxy')
+const validateUser = require('./validate')
 
-var config = require('./config')
+const config = require('./config')
 
-var proxy = httpProxy.createProxyServer({})
+const proxy = httpProxy.createProxyServer({})
 
 proxy.on('error', function (err) {
   console.error(err)
 })
 
-var server = http.createServer(function (req, res) {
+const server = http.createServer(function (req, res) {
   if (config.whitelist) {
-    var path = req.url
-    var whitelisted = config.whitelist.find(function (whitelist) {
-      var matchingMethod = !whitelist.method || whitelist.method === req.method
-      var matchingPath = path === whitelist.path
+    const path = req.url
+    const whitelisted = config.whitelist.find(function (whitelist) {
+      const matchingMethod = !whitelist.method || whitelist.method === req.method
+      const matchingPath = path === whitelist.path
       return matchingMethod && matchingPath
     })
 
