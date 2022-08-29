@@ -1,0 +1,9 @@
+.dockerignore
+.git/
+.github/
+.gitignore
+config.js
+config.js.example
+docker-compose.yml
+Dockerfile
+node_modules/

@@ -1,4 +1,10 @@
-proxy:
-  build: .
-  ports:
-    - 3000:3000
+version: '2'
+
+services:
+  proxy:
+    build: .
+    image: anrop/anrop-auth-proxy
+    ports:
+      - 3000:3000
+    volumes:
+      - ./config.js:/app/config.js

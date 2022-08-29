@@ -1,11 +1,12 @@
-FROM node:4.2.1
-
-# Copy application files
-COPY . /app/
+FROM node:lts-alpine
 
 # Install node dependencies for the application
 WORKDIR /app
-RUN npm install
+COPY package.json package-lock.json /app/
+RUN npm install --production
+
+# Copy application files
+COPY . /app/
 
 # Start application
 CMD ["npm", "start"]
