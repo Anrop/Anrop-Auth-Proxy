@@ -27,6 +27,7 @@ const server = http.createServer(function (req, res) {
 
   validateUser(req, function (err) {
     if (err) {
+      res.statusCode = 401;
       res.write('Authorize yourself at anrop.se first')
       res.end()
     } else {
